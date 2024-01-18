@@ -1,6 +1,7 @@
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 public class AddCustomer extends javax.swing.JFrame {
@@ -14,7 +15,7 @@ public class AddCustomer extends javax.swing.JFrame {
          conn=DBConnection.connection();
     }
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -46,7 +47,7 @@ public class AddCustomer extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jComboBox4 = new javax.swing.JComboBox<>();
-        jTextField7 = new javax.swing.JTextField();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -165,8 +166,6 @@ public class AddCustomer extends javax.swing.JFrame {
         jComboBox4.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Genuine Engine Oil 4T plus", "Nil", " " }));
 
-        jTextField7.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -194,7 +193,7 @@ public class AddCustomer extends javax.swing.JFrame {
                         .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.LEADING, 0, 96, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,8 +231,8 @@ public class AddCustomer extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -271,7 +270,7 @@ public class AddCustomer extends javax.swing.JFrame {
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         jMenu1.setText("File");
@@ -327,37 +326,38 @@ public class AddCustomer extends javax.swing.JFrame {
 
         setSize(new java.awt.Dimension(882, 733));
         setLocationRelativeTo(null);
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {                                             
        
-    }//GEN-LAST:event_jTextField11ActionPerformed
+    }                                            
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {                                           
         setVisible(false);
         Home object=new Home();
         object.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }                                          
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {                                           
         setVisible(false);
         Login object=new Login();
         object.setVisible(true);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }                                          
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {                                           
         setVisible(false);
         about object=new about();
         object.setVisible(true);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }                                          
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         try{
             stmt=conn.createStatement();
             String customername=jTextField1.getText();
             String address=jTextField2.getText();
             String phoneno=jTextField3.getText();
-            String date=jTextField7.getText();
+            SimpleDateFormat date_f=new SimpleDateFormat("yyyy-MM-dd");
+            String date=date_f.format(jDateChooser1.getDate()); 
             String gender=(String)jComboBox1.getSelectedItem();
             String motordetails=jTextField11.getText();
             String model=jTextField4.getText();
@@ -378,13 +378,13 @@ public class AddCustomer extends javax.swing.JFrame {
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }                                        
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         setVisible(false);
                 Home object=new Home();
                 object.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }                                        
 
     
     public static void main(String args[]) {
@@ -396,13 +396,14 @@ public class AddCustomer extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -431,7 +432,6 @@ public class AddCustomer extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 }
