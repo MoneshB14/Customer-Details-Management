@@ -1,6 +1,7 @@
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.util.regex.*;
 import javax.swing.JOptionPane;
 
 
@@ -48,6 +49,11 @@ public class Login extends javax.swing.JFrame {
         password.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
 
         mail.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        mail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mailActionPerformed(evt);
+            }
+        });
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\mones\\Downloads\\project Image\\project Image\\login1.png")); // NOI18N
@@ -112,7 +118,7 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 728, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -158,6 +164,10 @@ public class Login extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void mailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mailActionPerformed
+       
+    }//GEN-LAST:event_mailActionPerformed
 
    
     public static void main(String args[]) {

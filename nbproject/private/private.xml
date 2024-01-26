@@ -4,11 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/Project/CoustomerManagement/src/Home.java</file>
-            <file>file:/D:/Project/CoustomerManagement/src/AddCustomer.java</file>
+            <file>file:/D:/Project/CoustomerManagement/src/AddCustomerNew.java</file>
             <file>file:/D:/Project/CoustomerManagement/src/customer.java</file>
+            <file>file:/D:/Project/CoustomerManagement/src/ServiceJobs.java</file>
+            <file>file:/D:/Project/CoustomerManagement/src/Jobs.java</file>
             <file>file:/D:/Project/CoustomerManagement/src/DBConnection.java</file>
             <file>file:/D:/Project/CoustomerManagement/src/Login.java</file>
             <file>file:/D:/Project/CoustomerManagement/src/Showcustomers.java</file>
+            <file>file:/D:/Project/CoustomerManagement/src/ShowServiceJobs.java</file>
         </group>
     </open-files>
 </project-private>
